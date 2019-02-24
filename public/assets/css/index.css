@@ -1,0 +1,74 @@
+.center {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+nav {
+    height: 70px;
+    width: 100%;
+    background-color: rgb(70, 69, 69);
+}
+
+* {
+    margin: 0;
+    padding: 0;
+}
+
+nav a {
+    font-family: 'Righteous', cursive;
+    color: white;
+    text-decoration: none;
+    margin-left: 15px;
+}
+
+p {
+    display: block;
+    margin-block-end: 1em;
+    margin-inline-start: 0px;
+    margin-inline-end: 0px;
+    text-align: center;
+}
+
+.container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+.header {
+  background-image: url("top.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  height: 520px;
+}
+
+.song {
+  margin: 20px;
+  padding: 10px 10px 0px 10px;
+  width: 200px;
+  border-radius: 5px;
+  word-break: break-all;
+  box-shadow: 2px 2px 2px 2px rgba(0, 0, 0, 0.4);
+  line-height: 0.9em;
+  text-align: center;
+}
+
+.form {
+  text-align: center;
+}
+
+.musics {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.header h1{
+  font-family: 'Righteous', cursive; color:#ffffff;
+  text-align:center; font-size: 1.6em;
+  background-repeat: no-repeat;
+  padding-top: 40px;
+}

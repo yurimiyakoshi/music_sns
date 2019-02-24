@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+	<meta charset="UTF-8">
+	<title>test</title>
+	<link rel="stylesheet" href="/assets/css/index.css">
+	<link href="https://fonts.googleapis.com/css?family=Righteous" rel="stylesheet">
+</head>
+<body>
+<nav class="center">
+	<a href="/" font-family: 'Righteous', cursive;>MUSIC SNS!!!</a>
+
+		<a href="/home">
+    <img src="<%= current_user.user_img %>" alt="user_image" width="40" height="40" border-radius : 50%;>
+    </a>
+		<a href="/search">search</a>
+		<a href="/signout">logout</a>
+
+</nav>
+<main>
+
+<div class="musics">
+	<h1 style="text-align:center; font-size: 1.6em;"><%= @user_name %>の投稿</h1>
+	<% if @user_songs %>
+	 <%= session[:user] %>
+    <% @user_songs.each do |song| %>
+			<div class="song">
+				<img src="<%= song.img %>">
+				<p><%= song.artist %></p>
+				<p><%= song.album %></p>
+				<p><%= song.title %></p>
+				<p><a href="<%= song.sample %>">サンプル</a></p>
+				<p>コメント:<%= song.body %></p>
+				<p><form name="delete" method="POST" action="/delete/<%= song.id %>">
+    				<a href="/delete/<%= song.id %>">削除</a>
+				</form></p>
+				<a href="/edit/<%= song.id %>">編集</a></>
+			</div>
+    <% end %>
+	<% else %>
+		<p>投稿がありません</p>
+	<% end %>
+</div>
+</main>
+</body>
+</html>

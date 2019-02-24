@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <title>test</title>
+  <link rel="stylesheet" href="/assets/css/bootstrap.min.css">
+  <link rel="stylesheet" href="/assets/css/index.css">
+
+</head>
+<body>
+  <nav class="center-hrizontal">
+	<a href="/">MUSIC SNS!!!</a>
+		<a href="/home">
+    <img src="<%= current_user.user_img %>" alt="user_image" width="40" height="40">
+    </a>
+		<a href="/search">search</a>
+		<a href="/signout">logout</a>
+	</nav>
+	<main>
+
+<div class="center-vertical">
+	<h1>コメントの更新</h1>
+  <form action="/update/<%= @song.id %>" method="post">
+		<input type="test" name="body" placeholder="<%= @song.body %>"><br>
+		<input type="submit" value="更新">
+	</form>
+</div>
+</main>
+</body>
+</html>

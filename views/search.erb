@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+	<meta charset="UTF-8">
+	<title>test</title>
+	<link rel="stylesheet" href="/assets/css/index.css">
+	<link href="https://fonts.googleapis.com/css?family=Righteous" rel="stylesheet">
+</head>
+<body>
+<nav class="center">
+    <a href="/">MUSIC SNS!!!</a>
+		<a href="/home">
+    <img src="<%= current_user.user_img %>" alt="user_image" width="40" height="40">
+    </a>
+		<a href="/search">search</a>
+		<a href="/signout">logout</a>
+
+</nav>
+<main>
+
+<div class="form">
+	<h1 style="font-size: 1.6em;">検索フォーム</h1>
+	<form action="/search" method="post">
+		<input type="text" name="word" placeholder="アーティスト名">
+		<input type="submit" value="検索">
+	</form>
+	<h2>検索結果</h2>
+  <% unless @musics %>
+		<p>検索結果がありません</p>
+	<% else %>
+	<div class="container">
+		<% @musics.each do |music| %>
+			<div class="song">
+				<p><img src="<%= music["artworkUrl100"] %>"></p>
+				<p><%= music["artistName"] %></p>
+				<p><%= music["collectionName"] %></p>
+				<p><%= music["trackName"] %></p>
+				<a href="<%= music["previewUrl"] %>">サンプル</a>
+				<form action="/new" method="post">
+					<input type="hidden" name="img" value="<%= music["artworkUrl100"] %>">
+					<input type="hidden" name="artist" value="<%= music["artistName"] %>">
+					<input type="hidden" name="sample" value="<%= music["previewUrl"] %>">
+					<input type="hidden" name="title" value="<%= music["trackName"] %>">
+					<input type="hidden" name="album" value="<%= music["collectionName"] %>">
+					<input type="test" name="body" placeholder="コメント">
+					<input type="submit" value="投稿">
+				</form>
+			</div>
+		<% end %>
+	</div>
+  <% end %>
+
+</div>
+</main>
+
+</body>
